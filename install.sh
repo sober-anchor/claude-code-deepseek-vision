@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================
-#  claude-code-deepseek-vision 一键安装 (macOS / Linux)
+#  claude-code-deepseek-vision-solution 一键安装 (macOS / Linux)
 #  1) 安装 Python 依赖
 #  2) 下载本地视觉模型 (BLIP-large, ~3.9GB)
 # ============================================

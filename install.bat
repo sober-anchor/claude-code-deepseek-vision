@@ -1,6 +1,6 @@
 @echo off
 REM ============================================
-REM  claude-code-deepseek-vision 一键安装 (Windows)
+REM  claude-code-deepseek-vision-solution 一键安装 (Windows)
 REM  1) 安装 Python 依赖
 REM  2) 下载本地视觉模型 (BLIP-large, ~3.9GB)
 REM ============================================
