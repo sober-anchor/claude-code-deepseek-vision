@@ -2,6 +2,24 @@
 
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/) 与 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## [1.1.0] - 2026-08-09
+
+### ✨ 新增
+
+- 📦 **升级为正式 Python 包**：`pyproject.toml` + `src/` 布局，支持 `pip install -e .`
+- 🖥️ **命令行入口**：`img2text <图片> [auto|ocr|vision]` 与 `img2text-download [--base]`
+- 🧪 **最小测试集**：`tests/`，离线可跑
+- 🔧 核心逻辑拆分为 `src/img2text/{core,cli}.py`，支持 `python -m img2text`
+
+### 📝 变更
+
+- `install.bat` / `install.sh` 改为 `pip install -e .` + `img2text-download`
+- README / SKILL.md 安装与用法同步更新
+
+### 🔒 安全
+
+- 全程无敏感信息（无密钥/邮箱/密码）
+
 ## [1.0.0] - 2026-08-09
 
 ### ✨ 新增

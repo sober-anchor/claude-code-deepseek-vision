@@ -1,5 +1,6 @@
-# 依赖（img2text.py）
-# 注意: easyocr 会自动拉取 torch + torchvision（体积较大，CPU 版约 2GB）
+# 依赖已迁移到 pyproject.toml（正式包安装会自动拉取）。
+# 本文件保留给不想装包、只想手动装依赖的场景。
+# 注意: easyocr 会自动拉取 torch + torchvision（CPU 版约 2GB）
 transformers>=4.40
 easyocr>=1.7
 accelerate>=0.30

@@ -10,14 +10,15 @@ description: 给纯文本底层大模型（如 DeepSeek）"看"图的能力。�
 ## 安装要求
 
 ```bash
-pip install -r requirements.txt
-python download_models.py    # 下载 BLIP-large（~3.9GB），可选回退 base
+pip install -e .            # 安装为正式包（自动拉取依赖）
+img2text-download           # 下载 BLIP-large（~3.9GB），可选 --base
 ```
 
 ## 核心工具
 
 ```
-python <repo>/img2text.py <图片路径> [auto|ocr|vision]
+img2text <图片路径> [auto|ocr|vision]
+# 未安装时可用: python -m img2text <图片路径>
 ```
 
 - `auto`：先 OCR 再视觉描述（默认）

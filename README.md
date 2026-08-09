@@ -56,11 +56,11 @@ git clone https://github.com/sober-anchor/claude-code-deepseek-vision-solution.g
 cd claude-code-deepseek-vision-solution
 
 # 2. 安装（Windows: 双击 install.bat；macOS/Linux: ./install.sh）
-python -m pip install -r requirements.txt
-python download_models.py        # 下载 BLIP-large (~3.9GB)
+python -m pip install -e .        # 安装为正式 Python 包，自动拉取依赖
+img2text-download                 # 下载 BLIP-large 视觉模型 (~3.9GB)
 
 # 3. 试用：让 AI "看"一张图
-python img2text.py your_photo.jpg
+img2text your_photo.jpg
 # → [视觉模型] 描述: 'there is a small kitten sitting on the floor looking at the camera'
 ```
 
@@ -90,12 +90,20 @@ OCR 效果（一张写着中文+英文的测试图）：
 
 ## 🔧 命令参考 / CLI
 
+安装为包后（`pip install -e .`），提供两个命令：
+
 ```
-python img2text.py <图片路径> [auto|ocr|vision]
+img2text <图片路径> [auto|ocr|vision]
   auto   - 先 OCR 再视觉描述（默认）
   ocr    - 只提取文字
   vision - 只描述画面
+
+img2text-download [--base]
+  --base - 下载 base 版 (~990MB) 而非 large (~3.9GB)
 ```
+
+未安装时也可用 `python -m img2text <图片路径>` 或直接运行
+`python src/img2text/cli.py <图片路径>`。
 
 ## 📚 文档 / Docs
 
@@ -124,15 +132,19 @@ python img2text.py <图片路径> [auto|ocr|vision]
 ## 📦 目录结构
 
 ```
-├── img2text.py          # 核心工具：图片 → 文字
+├── pyproject.toml       # 正式 Python 包定义（pip install -e .）
+├── src/img2text/        # 核心包
+│   ├── core.py          #   图片→文字 核心逻辑（OCR / 视觉描述）
+│   ├── cli.py           #   命令行入口（img2text / img2text-download）
+│   └── __init__.py      #   公共 API 导出
 ├── SKILL.md             # Claude Code skill 定义
 ├── STORY.md             # 项目幕后故事
-├── download_models.py   # 下载视觉模型
+├── download_models.py   # 下载视觉模型（免安装可用）
 ├── install.sh           # macOS/Linux 一键安装
 ├── install.bat          # Windows 一键安装
 ├── winrt_ocr.ps1        # [实验性] Windows 内置 OCR
+├── tests/               # 最小测试集
 ├── docs/                # 文档：排解 / 贡献 / 安全
-├── requirements.txt
 └── LICENSE
 ```
 

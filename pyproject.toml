@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "img2text"
+version = "1.1.0"
+description = "给纯文本大模型（如 DeepSeek）装上眼睛：本地 OCR + 视觉模型把图片翻译成文字（Claude Code × DeepSeek 识图一键解决方案）"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "sober-anchor" }]
+keywords = ["deepseek", "claude-code", "vision", "ocr", "image-recognition", "llm", "blip", "easyocr"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "easyocr>=1.7",
+    "transformers>=4.40",
+    "accelerate>=0.30",
+    "safetensors>=0.4",
+    "Pillow>=10.0",
+]
+
+[project.scripts]
+img2text = "img2text.cli:main"
+img2text-download = "img2text.cli:download_main"
+
+[project.urls]
+Homepage = "https://github.com/sober-anchor/claude-code-deepseek-vision-solution"
+Repository = "https://github.com/sober-anchor/claude-code-deepseek-vision-solution"
+Issues = "https://github.com/sober-anchor/claude-code-deepseek-vision-solution/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

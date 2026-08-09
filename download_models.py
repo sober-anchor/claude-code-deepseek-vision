@@ -1,22 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""下载本地视觉模型（BLIP-large，约 3.9GB；失败则回退下载 base，约 990MB）。
+"""下载本地视觉模型（无需安装包即可使用）。
 
 用法:
-    python download_models.py            # 下载 large
-    python download_models.py --base     # 强制下载 base
+    python download_models.py            # 下载 large (~3.9GB)
+    python download_models.py --base     # 下载 base  (~990MB)
+
+安装为包后也可用命令 `img2text-download [--base]`。
 """
 import sys
 
-def log(msg):
-    print(msg, flush=True)
 
-def download(model_id: str):
+def download(model_id: str) -> None:
     from transformers import BlipProcessor, BlipForConditionalGeneration
-    log(f">>> 下载 {model_id} ...")
+    print(f">>> 下载 {model_id} ...")
     BlipProcessor.from_pretrained(model_id)
     BlipForConditionalGeneration.from_pretrained(model_id)
-    log(">>> 完成")
+    print(">>> 完成")
+
 
 if __name__ == "__main__":
     if "--base" in sys.argv:
@@ -25,6 +26,6 @@ if __name__ == "__main__":
         try:
             download("Salesforce/blip-image-captioning-large")
         except Exception as e:
-            log("large 下载失败: " + repr(e))
-            log("回退下载 base ...")
+            print("large 下载失败: " + repr(e))
+            print("回退下载 base ...")
             download("Salesforce/blip-image-captioning-base")
