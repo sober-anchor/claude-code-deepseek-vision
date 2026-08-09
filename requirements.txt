@@ -1,0 +1,7 @@
+# 依赖（img2text.py）
+# 注意: easyocr 会自动拉取 torch + torchvision（体积较大，CPU 版约 2GB）
+transformers>=4.40
+easyocr>=1.7
+accelerate>=0.30
+safetensors>=0.4
+Pillow>=10.0
