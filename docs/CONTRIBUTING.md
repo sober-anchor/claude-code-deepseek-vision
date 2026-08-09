@@ -14,7 +14,7 @@
 
 - **语言**：Python，遵循 [PEP 8](https://peps.python.org/pep-0008/)。
 - **注释**：中文注释为主（项目面向中英双语用户），关键逻辑加注释。
-- **保持简单**：`img2text.py` 是单一职责的核心工具，尽量不引入额外依赖。
+- **保持简单**：`src/img2text/` 是单一职责的核心包，尽量不引入额外依赖。
 - **不提交敏感信息**：任何情况下不得把 API Key、密码、个人邮箱、token 提交进仓库。
 
 ### 文档
@@ -27,7 +27,7 @@
 
 1. Fork 本仓库并克隆到本地。
 2. 新建分支：`git checkout -b feat/my-improvement`。
-3. 做改动并本地验证（例如跑 `python img2text.py 测试图.jpg vision`）。
+3. 做改动并本地验证（例如跑 `img2text 测试图.jpg vision`）。
 4. 提交，写清改动内容。
 5. 推送到你的 Fork，向 `master` 分支发起 Pull Request。
 6. 在 PR 描述里说明：改了什么、为什么改、如何验证。

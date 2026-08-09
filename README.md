@@ -7,7 +7,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/sober-anchor/claude-code-deepseek-vision-solution?style=social)](https://github.com/sober-anchor/claude-code-deepseek-vision-solution)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-green.svg)](img2text.py)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-green.svg)](src/img2text/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](install.sh)
 [![Offline](https://img.shields.io/badge/runtime-offline-orange.svg)](#-特性-features)
 
@@ -32,7 +32,7 @@ DeepSeek 的公开 API 是**纯文本模型**。当你把它接进 **Claude Code
 
 ```
 ┌─────────┐    ┌────────────────────────────┐    ┌────────────┐    ┌──────────┐
-│  图片     │───▶│  img2text.py 本地翻译官       │───▶│  文字描述     │───▶│ DeepSeek │
+│  图片     │───▶│  img2text  本地翻译官         │───▶│  文字描述     │───▶│ DeepSeek │
 │ cat.jpg  │    │  · easyocr    读文字         │    │ "a kitten  │    │  大脑     │
 │          │    │  · BLIP-large 描述画面       │    │  sitting…" │    │  "看懂"  │
 └─────────┘    └────────────────────────────┘    └────────────┘    └──────────┘
@@ -121,7 +121,7 @@ img2text-download [--base]
 因为 DeepSeek 的 API 层根本不接受/不转发图片块（实测：发送图片后，模型收到的是文字 `[Unsupported Image]`）。这是接口层的限制，换名字解决不了。本仓库从外部补上视觉，绕开这个限制。详见 [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)。
 
 **一定要下载 3.9GB 的模型吗？**
-`download_models.py` 默认下 BLIP-large（更准）。嫌大就 `python download_models.py --base`（~990MB），`img2text.py` 会自动回退。
+`img2text-download` 默认下 BLIP-large（更准）。嫌大就 `img2text-download --base`（~990MB），`img2text` 会自动回退。
 
 **EasyOCR 会不会很慢？**
 首次运行下载 ~100MB 模型；之后 OCR 很快，BLIP 每张图 CPU 约 9–16 秒。

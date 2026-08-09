@@ -120,3 +120,29 @@ AI 做了，955KB，10 个品种一个不少，图都「对得上」品种，非
 > **永远别在聊天里发密码。**
 
 （发布前，提交历史里的个人邮箱已被重写清除；仓库里没有任何敏感信息。愿每个小白都能安全地当大佬。）
+
+---
+
+## 发布之后：从脚本到正式包（番外）
+
+发布只是个开始。为了让这个项目更容易被搜到、更像个「正经项目」，我们又做了三件事：
+
+1. **改名**：`claude-code-deepseek-vision` → `claude-code-deepseek-vision-solution`
+   —— GitHub 仓库名不能放中文，但**中文描述、README 大标题、8 个搜索标签**都安排上了
+   （`claude-code` / `deepseek` / `vision` / `ocr` / `image-recognition` / `llm` / `blip`…），中文也能搜到。
+
+2. **建规范**：`docs/` 三件套（疑难排解 / 贡献指南 / 安全政策）+ CHANGELOG + 行为准则 + 代码风格文件。
+
+3. **升级为正式 Python 包**：`pyproject.toml` + src 布局 + 命令行入口 + 测试集。
+
+```bash
+pip install git+https://github.com/sober-anchor/claude-code-deepseek-vision-solution.git
+img2text 猫.jpg vision     # 一把梭
+```
+
+小白终于体验了一把「自己发布 pip 包」的感觉。
+
+以及一条被反复验证的真理：
+
+> 一个项目值不值得高星，不在于它一开始多大，
+> 而在于你愿意为它补多少次文档、擦多少次隐私、改多少次名。

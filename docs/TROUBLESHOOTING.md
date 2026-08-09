@@ -26,7 +26,7 @@
 
 **验证**：
 ```bash
-python img2text.py your_photo.jpg vision
+img2text your_photo.jpg vision
 ```
 
 ## 2. 把模型名改成 claude-* 还是不能看图
@@ -64,7 +64,7 @@ git config http.proxy http://127.0.0.1:<你的代理端口>
 
 **原因**：Windows PowerShell 5.1 调用 WinRT 异步接口时的经典互操作问题，与脚本本身无关。
 
-**解决**：本项目的默认 OCR 是 **easyocr**（`python img2text.py ... ocr`），不要依赖 WinRT。
+**解决**：本项目的默认 OCR 是 **easyocr**（`img2text ... ocr`），不要依赖 WinRT。
 `winrt_ocr.ps1` 仅作为实验性参考保留。
 
 ## 5. 模型下载失败 / 很慢
