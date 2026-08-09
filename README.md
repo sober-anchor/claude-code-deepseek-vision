@@ -50,7 +50,7 @@ DeepSeek 的公开 API 是**纯文本模型**。当你把它接进 Claude Code �
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/<your>/claude-code-deepseek-vision.git
+git clone https://github.com/sober-anchor/claude-code-deepseek-vision.git
 cd claude-code-deepseek-vision
 
 # 2. 安装（Windows: 双击 install.bat；macOS/Linux: ./install.sh）
