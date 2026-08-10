@@ -12,6 +12,7 @@
 6. [EasyOCR 首次运行很慢](#6-easyocr-首次运行很慢)
 7. [只给文件名找不到图片](#7-只给文件名找不到图片)
 8. [中文乱码 / 控制台编码问题](#8-中文乱码--控制台编码问题)
+9. [视觉描述返回空 / BLIP 加载失败](#9-视觉描述返回空--blip-加载失败)
 
 ---
 
@@ -102,5 +103,17 @@ git config http.proxy http://127.0.0.1:<你的代理端口>
 **解决**：Windows 下先执行 `chcp 65001` 切 UTF-8；或在 Python 里 `sys.stdout.reconfigure(encoding="utf-8")`（本项目已内置）。
 
 ---
+
+## 9. 视觉描述返回空 / BLIP 加载失败
+
+**现象**：`img2text <图> vision` 或 `auto` 只输出「没有提取到任何内容」，OCR 正常但视觉描述为空。
+
+**原因**：`from_pretrained` 默认会联网检查模型更新。在 HuggingFace 被墙的网络环境下，
+加载会超时（`ConnectTimeout`），旧版本代码用 `except: continue` 吞掉了这个异常，导致静默返回空。
+
+**解决**：本项目 **v1.1.1 起**已改为 `local_files_only=True` 纯本地加载，不需要联网。
+- 升级到最新版：`pip install -e .`（本地仓库）或 `pip install -U img2text`
+- 确保模型已下载：`img2text-download`
+- 手动确认缓存：`~/.cache/huggingface/hub/` 下应有 `models--Salesforce--blip-image-captioning-*`
 
 > 没找到你遇到的问题？欢迎提 [Issue](../../issues) 或参与 [CONTRIBUTING](CONTRIBUTING.md)。

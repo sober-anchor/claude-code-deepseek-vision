@@ -41,8 +41,9 @@ def _load_blip():
         return None
     for model_id in BLIP_MODELS:
         try:
-            proc = BlipProcessor.from_pretrained(model_id)
-            model = BlipForConditionalGeneration.from_pretrained(model_id)
+            # local_files_only: 只用本地缓存，避免因网络被墙（HF 连不上）而加载失败
+            proc = BlipProcessor.from_pretrained(model_id, local_files_only=True)
+            model = BlipForConditionalGeneration.from_pretrained(model_id, local_files_only=True)
             _blip_cache[model_id] = (proc, model)
             return _blip_cache
         except Exception:

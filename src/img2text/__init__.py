@@ -6,5 +6,5 @@
 """
 from .core import blip_caption, download_models, easyocr_ocr, run
 
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 __all__ = ["easyocr_ocr", "blip_caption", "run", "download_models", "__version__"]

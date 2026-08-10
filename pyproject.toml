@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "img2text"
-version = "1.1.0"
+version = "1.1.1"
 description = "给纯文本大模型（如 DeepSeek）装上眼睛：本地 OCR + 视觉模型把图片翻译成文字（Claude Code × DeepSeek 识图一键解决方案）"
 readme = "README.md"
 requires-python = ">=3.10"

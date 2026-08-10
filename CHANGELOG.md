@@ -2,6 +2,17 @@
 
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/) 与 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## [1.1.1] - 2026-08-10
+
+### 🐛 修复
+
+- **BLIP 视觉模型加载失败**：`_load_blip()` 默认联网检查模型，在 HuggingFace 被墙的网络下会静默超时（被 `except: continue` 吞掉），导致视觉描述返回空。
+  已改为 `local_files_only=True` 纯本地加载，只读本地缓存、不联网。
+
+### 📝 变更
+
+- `img2text.core._load_blip` 加载 BLIP 模型时强制本地缓存模式。
+
 ## [1.1.0] - 2026-08-09
 
 ### ✨ 新增
